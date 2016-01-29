@@ -3,12 +3,21 @@ describe("pizzaPrice", function() {
     var testPrice = new PizzaPrice('small', 'pepperoni');
     expect(testPrice.crust).to.equal('small');
     expect(testPrice.topping).to.equal('pepperoni');
-  }); //THIS AUTOMATICALLY WORKS IF function PizzaPrice IS BUILT
+  }); //(7:40 AM) THIS AUTOMATICALLY WORKS IF function PizzaPrice IS BUILT BECAUSE GENERAL VARIABLES WERE FED INTO PizzaPrice FUNCTION...
+  //(8:39 AM) WHICH IS WHAT IT WAS SUPPOSED TO DO...
 
-  it('will add one dollar for every topping added', function() {
-    var testPrice = new PizzaPrice(6)
-      expect(test.PizzaPrice.price).to.equal(6)
-    });
+  it('will change the price based on the crust size', function(){
+    var testPrice = new PizzaPrice("lg");
+    expect(testPrice.crustPrice()).to.equal(7)
+
+  }); 
+
+
+  // it('will add one dollar for every topping added', function() {
+  //   var testPrice = new PizzaPrice(6)
+  //     expect(test.PizzaPrice.price).to.equal(6)
+  //   });
+
 
 
 }); //END OF DESCRIBE SPEC

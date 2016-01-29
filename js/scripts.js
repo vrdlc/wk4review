@@ -1,9 +1,53 @@
 function PizzaPrice(crust, topping, basePrice) {
   this.crust = crust;
   this.topping = topping;
-  this.basePrice = 5;
+  this.basePrice = basePrice;
 }
 
+PizzaPrice.prototype.crustPrice = function() {
+  var basePrice = 5;
+
+  if (this.crust === 'small') {
+  basePrice += 0;
+  }
+
+  if (this.crust === 'med') {
+    basePrice += 1;
+  }
+
+  if (this.crust === 'lg') {
+    basePrice += 2;
+
+  }
+  return basePrice;
+};
+
+// PizzaPrice.prototype.price = function() {
+//   var basePrice = 4;
+//   var crust = 1;
+//   var topping = 1;
+//}
+
+
+
+// PizzaPrice.prototype.crust = function() {
+//   var small = this.baseprice;
+//   var med = this.baseprice +=2;
+//   var lg = this.baseprice += 4;
+//
+// }
+
+
+// PizzaPrice.prototype.finalPizza = function() {
+//   return this.crust +
+// }
+
+// PizzaPrice.prototype.topping = function() {
+//   var toppingPrice = this.topping;
+//   if(toppingPrice = 1) {
+//     return this.basePrice ++;
+//   }
+// }
 
 
 
