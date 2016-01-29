@@ -57,12 +57,14 @@ PizzaPrice.prototype.finalPrice = function() {
 
 $(document).ready(function(){
   $("#crust, #topping1").change(function(){
-      concatenated_string = $("#crust").val() + $("#topping1").val();
-      $("#crust_and_toppings").val(concatenated_string);
-      $("#finalPrice").text(concatenated_string)
+
+      concatenated_string = parseInt($("#crust").val()) + parseInt($("#topping1").val());
+
+  $("#submitbutton").click(function(event){
+    $("#finalPrice").text(concatenated_string)
     // $(".finalPrice").append(finalPrice)
   });
-
+});
 
 
 });
