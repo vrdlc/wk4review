@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/bootstrap.css" media="all" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css" media="all" title="no title" charset="utf-8">
+    <script type="text/javascript" src="js/jquery-1.12.0.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <meta charset="utf-8">
+    <title>Order Page</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Pizza Place</h1>
+      </div> <!--END OF JUMBOTRON DIV-->
+
+      <h2 id="orderHeader">Please make your selections below.</h2>
+
+
+      <div class="row">
+
+          <div class="col-sm-3 col-sm-offset-3">
+            <p>Please select your crust size:</p>
+            <!-- CRUST DROPDOWN -->
+
+            <select id="crust" name="crustSelect" size="2">
+              <option>Select your <strong>crust</strong> size</option>
+              <option value="0">Small (6 in) $5</option>
+              <option value="1">Medium (9 in) $6</option>
+              <option value="2">Large (12 in) $7</option>
+              <option value="3">X-Large (15 in) $8</option>
+            </select>
+            <!--END OF CRUST DROPDOWN-->
+          </div> <!--END OF CRUST DROPDOWN COLUMN-->
+
+          <div class="col-sm-3">
+            <p>Please select your topping choices (hold CTRL to select more than one option):</p>
+
+            <!-- TOPPING 1 DROPDOWN -->
+            <select id="topping1" name="toppingSelect" multiple=>
+              <option>Select your <strong>toppings</strong> size</option>
+              <option value="0">Small (6 in) $5</option>
+              <option value="1">Medium (9 in) $6</option>
+              <option value="2">Large (12 in) $7</option>
+              <option value="3">X-Large (15 in) $8</option>
+            </select><!--END OF TOPPING 1 DROPDOWN-->
+          </div> <!--END OF TOPPING DROPDOWN COLUMN-->
+      </div> <!--END OF ROW DIV-->
+
+      <div id="buttondiv">
+        <input onclick="this.disabled = true" id="submitbutton" type="submit"  value="Sumbit your order">
+      </div>
+      <div id="finalPrice"></div>
+      <input type="hidden" name="finalPrice" id="crust_and_toppings" value="" />
+
+
+    </div> <!--END OF CONTAINER DIV-->
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
