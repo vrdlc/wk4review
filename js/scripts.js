@@ -9,19 +9,25 @@ PizzaPrice.prototype.crustPrice = function() {
 
   if (this.crust === 'small') {
   basePrice += 0;
-  }
-
-  if (this.crust === 'med') {
+  } if (this.crust === 'med') {
     basePrice += 1;
-  }
-
-  if (this.crust === 'lg') {
+  } if (this.crust === 'lg') {
     basePrice += 2;
+  } if (this.crust === 'xl') {
+    basePrice += 3;
 
-  }
-  return basePrice;
+  } return basePrice;
 };
 
+
+PizzaPrice.prototype.toppingPrice = function() {
+  var basePrice = 5;
+  if (this.topping === 'pepperoni') {
+    basePrice += 1;
+  } if (this.topping === 'mushrooms') {
+    basePrice += 1;
+  } return basePrice;
+};
 // PizzaPrice.prototype.price = function() {
 //   var basePrice = 4;
 //   var crust = 1;
