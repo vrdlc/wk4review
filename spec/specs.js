@@ -18,7 +18,7 @@ describe("pizzaPrice", function() {
   });
 
   it ('will return a final price for a pizza with crust and toppings selected', function(){
-    var testFinal = new PizzaPrice('lg', 'mushrooms');
+    var testFinal = new PizzaPrice('lg', 'pepperoni');
     expect(testFinal.finalPrice()).to.equal(8)
   });
 
