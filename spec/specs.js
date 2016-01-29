@@ -10,7 +10,12 @@ describe("pizzaPrice", function() {
     var testPrice = new PizzaPrice("lg");
     expect(testPrice.crustPrice()).to.equal(7)
 
-  }); 
+  });
+
+  it('will change the price based on the number of toppings added', function() {
+    var testPrice = new PizzaPrice('pepperoni');
+    expect(testPrice.toppingPrice()).to.equal(6);
+  });
 
 
   // it('will add one dollar for every topping added', function() {
