@@ -17,6 +17,11 @@ describe("pizzaPrice", function() {
     expect(testTopping.toppingPrice()).to.equal(6);
   });
 
+  it ('will return a final price for a pizza with crust and toppings selected', function(){
+    var testFinal = new PizzaPrice('lg', 'mushrooms');
+    expect(testFinal.finalPrice()).to.equal(8)
+  });
+
 
   // it('will add one dollar for every topping added', function() {
   //   var testPrice = new PizzaPrice(6)
