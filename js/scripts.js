@@ -1,118 +1,115 @@
-function PizzaPrice(crust, topping) {
+function PizzaPrice(crust, topping, basePrice) {
   this.crust = crust;
   this.topping = topping;
+  this.basePrice = basePrice;
 }
 
-PizzaPrice.prototype.crustPrice = function(crustSize) { //MAY BE OBSOLETE
-  var crustPrice = 5;
-
-  if (this.crust === 'small') {
-  crustPrice += 0;
-  } if (this.crust === 'med') {
-    crustPrice += 1;
-  } if (this.crust === 'lg') {
-    crustPrice += 2;
-  } if (this.crust === 'xl') {
-    crustPrice += 3;
-
-  } return crustPrice;
-};
-
-
-PizzaPrice.prototype.toppingPrice = function(toppingCost) { //MAY BE OBSOLETE
-  var toppingPrice = 5;
-  if (this.topping === 'pepperoni') {
-    toppingPrice += 1;
-  } if (this.topping === 'mushrooms') {
-    toppingPrice += 1;
-  } return toppingPrice;
-};
-
-PizzaPrice.prototype.finalPrice = function() { //THIS WORKS FOR EVERYTHING BUT MIGHT STILL NEED TO USE CRUSTPRICE AND TOPPINGPRICE TO ADD VALUES TOGETHER?
+PizzaPrice.prototype.crustPrice = function() {
   var basePrice = 5;
 
-  if (this.crust === 'small') {
+  if (this.crust === 'Small') {
   basePrice += 0;
-  } if (this.crust === 'med') {
+} if (this.crust === 'Medium') {
     basePrice += 1;
-  } if (this.crust === 'lg') {
+  } if (this.crust === 'Large') {
     basePrice += 2;
-  } if (this.crust === 'xl') {
+  } if (this.crust === 'X-Large') {
     basePrice += 3;
 
-  } if (this.topping === 'pepperoni') {
-    basePrice += 1;
-  } if (this.topping === 'mushrooms') {
-    basePrice += 1;
-  } if (this.topping === 'peppers') {
-    basePrice += 1;
-  } if (this.topping === 'extracheese') {
-    basePrice += 1;
-
   } return basePrice;
+};
 
-}
 
-$(document).ready(function(){
+PizzaPrice.prototype.toppingPrice = function() {
+  var basePrice = 5;
+  if (this.topping === 'Pepperoni') {
+    basePrice += 1;
+  } if (this.topping === 'Mushrooms') {
+    basePrice += 1;
+  } return basePrice;
+};
 
-  $('#crust').click(function(){
+PizzaPrice.prototype.finalPrice = function() {
+  var basePrice = 5;
+
+
+  if (this.crust === 'Small' && this.topping === 'Pepperoni'){
+    basePrice +=1
+  } else if(this.crust === 'Medium' && this.topping === 'Pepperoni'){
+    basePrice +=2;
+  } else if (this.crust === 'Large' && this.topping === 'Pepperoni'){
+    basePrice +=3;
+  } else (this.crust === 'X-Large' && this.topping === 'Pepperoni')
+    basePrice +=4;
+
+
+
+       return basePrice;
+
+    }
+
+
+  // if (this.crust === 'small') {
+  // basePrice += 0;
+  // } if (this.crust === 'med') {
+  //   basePrice += 1;
+  // } if (this.crust === 'lg') {
+  //   basePrice += 2;
+  // } if (this.crust === 'xl') {
+  //   basePrice += 3;
+  //
+  // } if (this.topping === 'pepperoni') {
+  //   basePrice += 1;
+  // } if (this.topping === 'mushrooms') {
+  //   basePrice += 1;
+  // } if (this.topping === 'peppers') {
+  //   basePrice += 1;
+  // } if (this.topping === 'extracheese') {
+  //   basePrice += 1;
+
+
+$(document).ready(function() {
+  $("form#form").submit(function(event) {
+    event.preventDefault();
+
+    var inputtedCrust = $("select#crust").val();
+    var inputtedTopping = $("select#topping1").val();
+    var pizza = new PizzaPrice(inputtedCrust, inputtedTopping);
+
+    if(inputtedCrust === "" || inputtedTopping == "") {
+      alert("Sorry! You didn't make all your selections.")
+
+    } else {
+      $(".pizzaSize").text(inputtedCrust)
+      $(".pizzaTopping").text(inputtedTopping)
+      $(".finalPrice").text(pizza.finalPrice)
+
+    }
 
   });
 
-  $('#topping1').click(function(){
+
+
 
   });
-    $("#crust, #topping1").change(function(){
-
-        finalPrice = parseInt($("#crust").val()) + parseInt($("#topping1").val());
-
-    $("#submitbutton").click(function(event){
-
-      $("#finalPrice").text("Your total is: $" + finalPrice + ".00")
-      $(".finalPrice").append(finalPrice)
-    });
 
 
 
-});
-});
+
+
+
+//
+//
 // $(document).ready(function(){
-//   var pizza = new PizzaPrice();
-//   $('.crust').click(function() {
-//     var this.crustSize = $(this).val();
-//     pizza.crustPrice(crustSize)
-// //     alert(crustSize);
-// //
-// //
-// //
-// //     // pizza.crustPrice(crustPrice);
-// //     // alert(crustPrice);
-//     });
-// //
-//   $('.topping1').click(function(){
-//     var toppingCost = $(this).val();
-//     pizza.toppingPrice(toppingCost);
-// //     alert(toppingCost)
-//   });
-// //
-// //   $("#submitbutton").click(function(crustPrice, toppingPrice) {
-// //     // var crustPrice = "1"
-// //     // var toppingPrice = "1"
-// //
-//     // var finalPrice = crustPrice + toppingPrice;
-//     // $("#finalPrice").text("Your total is: $" + finalPrice + ".00")
-//     // $(".finalPrice").append(pizza.finalPrice)
-//
-//
 //   $("#crust, #topping1").change(function(){
 //
-//       finalPrice = parseInt($("#crust").val()) + parseInt($("#topping1").val());
+//       concatenated_string = parseInt($("#crust").val() + parseInt($("#topping1")).val());
 //
 //   $("#submitbutton").click(function(event){
-//     $("#finalPrice").text("Your total is: $" + finalPrice + ".00")
-//     $(".finalPrice").append(finalPrice)
+//     $("#finalPrice").text(concatenated_string)
+//     // $(".finalPrice").append(finalPrice)
 //   });
-//
 // });
+//
 //
 // });
