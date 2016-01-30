@@ -23,40 +23,64 @@
                 <div class="col-sm-3 col-sm-offset-3">
                   <p>Please select your crust size:</p>
                   <!-- CRUST DROPDOWN -->
+                  <form id='form'>
+                    <div class="form-group">
 
-                  <select id="crust" name="crustSelect" size="2">
-                    <option>Select your <strong>crust</strong> size</option>
-                    <option value=0>Small (6 in) $5</option>
-                    <option value=1>Medium (9 in) $6</option>
-                    <option value=2>Large (12 in) $7</option>
-                    <option value=3>X-Large (15 in) $8</option>
-                  </select>
-                  <!--END OF CRUST DROPDOWN-->
+
+                      <select id="crust" name="crustSelect">
+                        <option>Small</option>
+                        <option>Medium</option>
+                        <option>Large</option>
+                        <option>X-Large</option>
+                      </select>
+                    </div> <!--END OF FORM GROUP DIV-->
                 </div> <!--END OF CRUST DROPDOWN COLUMN-->
 
                 <div class="col-sm-3">
-                  <p>Please select your topping choices (hold CTRL to select more than one option):</p>
+                  <p>Please select your topping choices:</p>
 
                   <!-- TOPPING 1 DROPDOWN -->
-                  <select id="topping1" name="toppingSelect" multiple=>
-                    <option>Select your <strong>toppings</strong> size</option>
-                    <option value=0>Small (6 in) $5</option>
-                    <option value=1>Medium (9 in) $6</option>
-                    <option value=2>Large (12 in) $7</option>
-                    <option value=3>X-Large (15 in) $8</option>
-                  </select><!--END OF TOPPING 1 DROPDOWN-->
+                  <div class="form-group">
+
+                    <select id="topping1" name="toppingSelect">
+                      <option>Pepperoni</option>
+                      <option>Mushrooms</option>
+                      <option>Bell Peppers</option>
+                      <option>Extra Cheese</option>
+                    </select>
+                </div> <!--END OF FORM GROUP DIV-->
+                <div class="button">
+               <button type="submit" class="btn placeOrder" data-toggle="modal" data-target="#myModal">Place Order</button>
+             </div>
+                </form>
+
                 </div> <!--END OF TOPPING DROPDOWN COLUMN-->
             </div> <!--END OF ROW DIV-->
 
 
-
-      <div id="buttondiv">
-        <input onclick="this.disabled = true" id="submitbutton" type="submit"  value="Sumbit your order">
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Pizza Place</h4>
+            </div>
+            <div class="modal-body">
+              <div class="orderResults">
+                <h3>Your order</h3>
+                <p>Size: <span class="pizzaSize"></span></p>
+                <p>Toppings: <span class="pizzaTopping"></span></p>
+                <!-- <p>Size: <span class="pizza-size"></span></p>
+                <p>Price: <span class="pizza-price"></span></p> -->
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Confirm Purchase</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="finalPrice"></div>
-
-
-    </div> <!--END OF CONTAINER DIV-->
+    </div>
 
 
 
