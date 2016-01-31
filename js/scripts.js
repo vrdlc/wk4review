@@ -3,7 +3,7 @@ function PizzaPrice(crust, topping) {
   this.topping = topping;
 }
 
-PizzaPrice.prototype.crustPrice = function() { //MAY BE OBSOLETE
+PizzaPrice.prototype.crustPrice = function(crust) { //MAY BE OBSOLETE
   var crustPrice = 5;
   debugger;
   console.log(this.crust);
@@ -20,7 +20,7 @@ PizzaPrice.prototype.crustPrice = function() { //MAY BE OBSOLETE
 };
 
 
-PizzaPrice.prototype.toppingPrice = function() { //MAY BE OBSOLETE
+PizzaPrice.prototype.toppingPrice = function(topping1) { //MAY BE OBSOLETE
   var toppingPrice = 5;
   if (this.topping === 'pepperoni') {
     toppingPrice += 1;
@@ -63,14 +63,14 @@ $(document).ready(function(){
     var inputCrust = $("select#crust").val();
     var inputTopping1 = $("select#topping1").val();
 
-    var finalPrice = new PizzaPrice(inputCrust, inputTopping1)
-    finalPrice.crustPrice();
-    finalPrice.toppingPrice();
+    var finalPizza = new PizzaPrice(inputCrust, inputTopping1)
+    finalPizza.crustPrice();
+    finalPizza.toppingPrice();
     $(".total").show();
     $("#your-order").show();
-    $(".pizza-price").text(finalPrice.crustPrice + finalPrice.toppingPrice);
+    $(".pizza-price").text(parseInt(finalPizza.crustPrice + finalPizza.toppingPrice));
 
-    $("#order-items").append("<li>" + finalPrice.crustPrice() + " pizza with " + finalPrice.toppingPrice() + "</li>");
+    $("#order-items").append("<li>" + finalPizza.crustPrice() + " pizza with " + finalPizza.toppingPrice() + "</li>");
   });
 });
 
