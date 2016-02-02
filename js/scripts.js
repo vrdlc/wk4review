@@ -64,11 +64,11 @@ $(document).ready(function(){
     var inputTopping1 = $("select#topping1").val();
 
     var finalPizza = new PizzaPrice(inputCrust, inputTopping1)
-    finalPizza.finalPrice();
+    var finalPrice = finalPizza.finalPrice();
 
 
     $(".total").show();
-    $(".finalPizza").append(finalPizza.finalPrice());
+    $(".finalPizza").append(finalPrice);
   });
 });
 
