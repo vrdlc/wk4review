@@ -1,11 +1,12 @@
 function PizzaPrice(crust, topping) {
   this.crust = crust;
   this.topping = topping;
+  this.price = 5;
 }
 
-PizzaPrice.prototype.crustPrice = function(crust) { //MAY BE OBSOLETE
-  var crustPrice = 5;
-  debugger;
+PizzaPrice.prototype.crustPrice = function() { //MAY BE OBSOLETE
+  var crustPrice = this.price;
+
   console.log(this.crust);
   if (this.crust === 'sm') {
   crustPrice += 0;
@@ -20,22 +21,21 @@ PizzaPrice.prototype.crustPrice = function(crust) { //MAY BE OBSOLETE
 };
 
 
-PizzaPrice.prototype.toppingPrice = function(topping1) { //MAY BE OBSOLETE
-  var toppingPrice = 5;
-  if (this.topping === 'pepperoni') {
+PizzaPrice.prototype.toppingPrice = function() { //MAY BE OBSOLETE
+  var toppingPrice = crustPrice;
+  if (this.topping === 'pep') {
     toppingPrice += 1;
-  } if (this.topping === 'mushrooms') {
+  } if (this.topping === 'mush') {
     toppingPrice += 1;
   } return toppingPrice;
 };
 
-PizzaPrice.prototype.finalPrice = function() { //THIS WORKS FOR EVERYTHING BUT MIGHT STILL NEED TO USE CRUSTPRICE AND TOPPINGPRICE TO ADD VALUES TOGETHER?
-  var basePrice = 5;
+PizzaPrice.prototype.finalPrice = function(PizzaPrice) { //THIS WORKS FOR EVERYTHING BUT MIGHT STILL NEED TO USE CRUSTPRICE AND TOPPINGPRICE TO ADD VALUES TOGETHER?
+  var basePrice = this.price;
   debugger;
-  console.log(this.crust);
 
   if (this.crust === 'sm') {
-  basePrice += 0;
+    basePrice += 0;
   } if (this.crust === 'med') {
     basePrice += 1;
   } if (this.crust === 'lg') {
@@ -64,13 +64,11 @@ $(document).ready(function(){
     var inputTopping1 = $("select#topping1").val();
 
     var finalPizza = new PizzaPrice(inputCrust, inputTopping1)
-    finalPizza.crustPrice();
-    finalPizza.toppingPrice();
-    $(".total").show();
-    $("#your-order").show();
-    $(".pizza-price").text(parseInt(finalPizza.crustPrice + finalPizza.toppingPrice));
+    finalPizza.finalPrice();
 
-    $("#order-items").append("<li>" + finalPizza.crustPrice() + " pizza with " + finalPizza.toppingPrice() + "</li>");
+
+    $(".total").show();
+    $(".finalPizza").append(finalPizza.finalPrice());
   });
 });
 
