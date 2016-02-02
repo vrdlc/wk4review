@@ -23,37 +23,56 @@
                 <div class="col-sm-3 col-sm-offset-3">
                   <p>Please select your crust size:</p>
                   <!-- CRUST DROPDOWN -->
-
+                <form id="pizza-maker">
+                  <div class="form-group">
                   <select id="crust" name="crustSelect" size="2">
                     <option>Select your <strong>crust</strong> size</option>
-                    <option value=0>Small (6 in) $5</option>
-                    <option value=1>Medium (9 in) $6</option>
-                    <option value=2>Large (12 in) $7</option>
-                    <option value=3>X-Large (15 in) $8</option>
+                    <option value="sm">Small (6 in) $5</option>
+                    <option value="med">Medium (9 in) $6</option>
+                    <option value"lg">Large (12 in) $7</option>
+                    <option value="xl">X-Large (15 in) $8</option>
                   </select>
                   <!--END OF CRUST DROPDOWN-->
                 </div> <!--END OF CRUST DROPDOWN COLUMN-->
-
-                <div class="col-sm-3">
+              </div> <!--END OF FORM GROUP DIV-->
+                <!-- <div class="col-sm-3"> -->
+                  <div class="form-group">
                   <p>Please select your topping choices (hold CTRL to select more than one option):</p>
 
                   <!-- TOPPING 1 DROPDOWN -->
                   <select id="topping1" name="toppingSelect" multiple=>
                     <option>Select your <strong>toppings</strong> size</option>
-                    <option value=0>Small (6 in) $5</option>
-                    <option value=1>Medium (9 in) $6</option>
-                    <option value=2>Large (12 in) $7</option>
-                    <option value=3>X-Large (15 in) $8</option>
+                    <option value="pep">Pepperoni $1</option>
+                    <option value='mush'>Mushrooms $1</option>
+                    <option value='bell'>Bell Peppers $1</option>
+                    <option value='ch'>Extra Cheese $1</option>
                   </select><!--END OF TOPPING 1 DROPDOWN-->
-                </div> <!--END OF TOPPING DROPDOWN COLUMN-->
+                </div> <!--END OF FORM GROUP DIV-->
+                <!-- </div>--> <!--END OF TOPPING DROPDOWN COLUMN-->
+              <button type="submit" class="btn">Submit Order</button>
+              </form> <!--END OF FORM ID PIZZAMAKER-->
             </div> <!--END OF ROW DIV-->
 
 
+            <div>
+              <p class="total">Subtotal:</p>
+              <p class="total">$<span class="pizza-price"></span>.00</p>
+            </div>
 
-      <div id="buttondiv">
+            <div class="col-sm-6">
+              <div id="your-order">
+                <h3>Your Order</h3>
+                <ul id="order-items">
+                </ul>
+              </div>
+            </div>
+
+
+
+      <!-- <div id="buttondiv">
         <input onclick="this.disabled = true" id="submitbutton" type="submit"  value="Sumbit your order">
       </div>
-      <div id="finalPrice"></div>
+      <div id="finalPrice"></div> -->
 
 
     </div> <!--END OF CONTAINER DIV-->
